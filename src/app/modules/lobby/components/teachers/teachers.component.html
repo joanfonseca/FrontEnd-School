@@ -1,0 +1,100 @@
+<div class="container">
+    <div class="p-grid p-text-center">
+        <div class="p-col-12 p-md-12" style="text-align: left; padding-left: 10px;">
+            <h3>Teachers</h3>
+        </div>
+    </div>
+    <p-table #dt1 class="p-text-center" [value]="lista" selectionMode="single" [paginator]="true" [rows]="10"
+        [loading]="spinner" [globalFilterFields]="['name']">
+        <ng-template pTemplate="caption">
+            <div class="p-d-flex">
+                <span class="p-input-icon-left p-ml-auto">
+                    <i class="pi pi-search"></i>
+                    <input pTooltip="Search by name" pInputText type="text"
+                        (input)="dt1.filterGlobal($event.target.value, 'contains')" placeholder="Search by name" />
+                </span>
+            </div>
+        </ng-template>
+        <ng-template pTemplate="header">
+            <tr>
+                <th style="width: 20%;"><i class="fas fa-tag"></i>Id</th>
+                <th style="width: 60%;text-align: center;"><i class="fas fa-user-tag"></i>Name</th>
+                <th style="width: 20%; text-align: center;"><i class="fas fa-cogs"></i></th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-p>
+            <tr>
+                <td class="p-text-nowrap p-text-truncate" style="text-align: center;" pTooltip="{{p.id_teacher}}">
+                    {{p.id_teacher}}</td>
+                <td class="p-text-nowrap p-text-truncate" style="text-align: center;" pTooltip="{{p.name}}">
+                    {{p.name}}</td>
+                <td style="text-align: center;">
+                    <p-menu #menu popup="popup" appendTo="body" [model]="items"></p-menu>
+                    <button type="button" pButton pRipple class="p-button-rounded p-button-text" icon="pi pi-ellipsis-h"
+                        (click)="menu.toggle($event);update(p);"></button>
+                </td>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="emptymessage">
+            <tr>
+                <td colspan="4">No fount teachers.</td>
+            </tr>
+        </ng-template>
+    </p-table>
+</div>
+<div class="p-grid">
+    <div class="p-col-8 p-offset-2 p-text-center">
+        <div class="spinner" *ngIf="spinner">
+            <p-progressSpinner></p-progressSpinner>
+        </div>
+    </div>
+</div>
+
+<p-dialog [(visible)]="addDialog" [style]="{width: '70vw'}" header="List subjects of a teacher  " [modal]="true" styleClass="p-fluid">
+    <ng-template pTemplate="content">
+        <p-table  [value]="lista2" selectionMode="single"
+            [loading]="spinner">
+            <ng-template pTemplate="header">
+                <tr>
+                    <th style="width: 25%;"><i class="fas fa-user-tag"></i>Teacher</th>
+                    <th style="width: 25%;"><i class="fas fa-tag"></i>Grade</th>
+                    <th style="width: 25%;"><i class="fas fa-tag"></i>Subject</th>
+                    <th style="width: 25%;"><i class="fas fa-tag"></i>Id</th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-p>
+                <tr>
+                    <td class="p-text-nowrap p-text-truncate" style="text-align: center;" pTooltip="{{p.teacher}}">
+                        {{p.teacher}}</td>
+                    <td class="p-text-nowrap p-text-truncate" style="text-align: center;" pTooltip="{{p.grade}}">
+                        {{p.grade}}</td>
+                    <td class="p-text-nowrap p-text-truncate" style="text-align: center;" pTooltip="{{p.subject}}">
+                        {{p.subject}}</td>
+                    <td class="p-text-nowrap p-text-truncate" style="text-align: center;" pTooltip="{{p.id}}">
+                        {{p.id}}</td>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="emptymessage">
+                <tr>
+                    <td colspan="4">No fount teachers.</td>
+                </tr>
+            </ng-template>
+        </p-table>
+
+    </ng-template>
+    <ng-template pTemplate="footer">
+        <div class="spinner" *ngIf="!spinner">
+            <button id="footer" pButton pRipple label="Cancelar" icon="pi pi-times" class="p-button-text"
+                (click)="close()"></button>
+        </div>
+        <div class="p-grid">
+            <div class="p-col-8 p-offset-2 p-text-center">
+                <div class="spinner" *ngIf="spinner">
+                    <p-progressSpinner></p-progressSpinner>
+                </div>
+            </div>
+        </div>
+    </ng-template>
+</p-dialog>
+
+<p-toast></p-toast>
