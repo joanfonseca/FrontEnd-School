@@ -1,0 +1,64 @@
+:host::ng-deep #header .p-button-icon {
+	color: #ffffff;
+	padding: 0%;
+}
+#header {
+	background: linear-gradient(to left, #292929, #bbbbbb) fixed;
+	align-items: center;
+	padding: 0% !important;
+	margin-right: -0.5rem;
+	margin-left: -0.5rem;
+	margin-top: 0rem;
+	line-height: 1;
+	white-space: nowrap;
+}
+h2#titulo{
+	margin: auto;
+	color: black;
+}
+:host::ng-deep #menu .p-button-icon {
+	color: #000000;
+	padding: 0%;
+}
+
+#sidebar-content .p-button {
+	width: 100%;
+	height: 35px;
+	padding: 1.25%;
+	padding-top: 1.25%;
+	padding-right: 1.25%;
+	padding-bottom: 1.25%;
+	padding-left: 10%;
+	margin-left: 0%;
+	text-align: left;
+}
+:host::ng-deep .p-sidebar .p-sidebar-header {
+	padding: 0%;
+    padding-right: 10px !important;
+	background: linear-gradient(to left, #505050, #bdbdbd 80%);
+	width: 102%;
+	height: 50px;
+}
+:host::ng-deep i {
+	color: #868686;
+	padding-left: 0%;
+	padding-right: 1rem;
+}
+:host::ng-deep #side .p-button-label {
+	background-color: transparent;
+	color: #868686;
+	border-color: transparent;
+}
+:host::ng-deep  span.p-sidebar-close-icon.pi.pi-times {
+	color: #ffffff;
+}
+i#icono {
+	padding: 0%;
+	color: #666666;
+	font-size: 40px;
+	}
+	:host::ng-deep .container {
+		padding-right:2rem;
+		padding-left:2rem;
+		margin: auto;
+	}

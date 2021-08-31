@@ -1,0 +1,41 @@
+<div id="header" class="p-grid" style="margin: auto;">
+    <div class="p-col-2 p-md-2">
+        <button id="menu" pButton type="button" (click)="visibleSidebar = true" icon="pi pi-bars"
+            class="p-button-rounded p-button-secondary p-button-text"></button>
+    </div>
+    <div class="p-col-10 p-md-7  p-text-center  p-text-capitalize">
+        <h2 id="titulo">{{titulo}}</h2>
+    </div>
+</div>
+<p-sidebar [(visible)]="visibleSidebar" [baseZIndex]="10000">
+    <p-scrollPanel [style]="{width: '100%', height: '100%'}" styleClass="custombar1">
+        <div class="p-grid p-flex-column" style="margin-top: 20px">
+            <div id="sidebar-content" class="p-col">
+                <button id="side" pButton type="button" label="Home" [routerLink]="['']"
+                    class="p-button-secondary p-button-text" (click)="visibleSidebar = false">
+                    <i id="side" class="fas fa-home"></i></button>
+            </div>
+            <div id="sidebar-content" class="p-col">
+                <button id="side" pButton type="button" label="Teachers" [routerLink]="['teacher']"
+                    class="p-button-secondary p-button-text" (click)="visibleSidebar = false">
+                    <i id="side" class="fas fa-user-tie"></i></button>
+            </div>
+            <div id="sidebar-content" class="p-col">
+                <button pButton id="side" type="button" label="Students" [routerLink]="['student']"
+                    class="p-button-secondary p-button-text" (click)="visibleSidebar = false">
+                    <i id="side" class="fas fa-graduation-cap"></i></button>
+
+            </div>
+            <div class="p-col p-text-center" style="padding-top: 10rem;">
+                <div class="p-grid" style="margin-top:0% ;">
+                    <div class="p-col-12 p-text-center" style="margin: auto;">
+                        <i id="icono" class="fas fa-chalkboard-teacher fa-lg" style="margin: auto;"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </p-scrollPanel>
+</p-sidebar>
+
+<p-toast></p-toast>
+<router-outlet></router-outlet>
